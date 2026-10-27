@@ -241,7 +241,7 @@ addEventListener('blur',()=>{held.length=0});
 let AC=null;
 const ac=()=>{AC=AC||new (window.AudioContext||window.webkitAudioContext)();if(AC.state==='suspended')AC.resume();return AC;};
 /* background music: Garden.mp3 sits in the same folder as this HTML file */
-const BV=1,clk=()=>performance.now()/1000;
+const BV=2,clk=()=>performance.now()/1000;
 const bgm=new Audio('Garden.mp3');bgm.loop=true;
 let bgmGain=null,mt=null,blocked=false,bgmTried=false,bgmFailed=false,bgTgt=-1,GS='intro',PT0=null,WT0=0;   // mt = time the music started
 try{const a=ac();bgmGain=a.createGain();bgmGain.gain.value=0;a.createMediaElementSource(bgm).connect(bgmGain);bgmGain.connect(a.destination);}catch(_){bgmGain=null;bgm.volume=BV;}
